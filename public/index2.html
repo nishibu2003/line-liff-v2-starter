@@ -13,16 +13,26 @@
 				console.log("initializa Liff. liffId = " + myLiffId);
 				console.log(liff);
 				
-			    document.getElementById('browserLanguage').textContent = liff.getLanguage();
-			    document.getElementById('sdkVersion').textContent = liff.getVersion();
-			    document.getElementById('lineVersion').textContent = liff.getLineVersion();
-			    document.getElementById('isInClient').textContent = liff.isInClient();
-			    document.getElementById('isLoggedIn').textContent = liff.isLoggedIn();
-			    document.getElementById('deviceOS').textContent = liff.getOS();
-				
-		        liff.getProfile().then(function(profile) {
-		            document.getElementById('displayNameField').textContent = profile.displayName;
-				});
+		    	liff.init({
+		            liffId: myLiffId
+		        	},
+		        	function(){
+		        		console.log("success");
+					    document.getElementById('browserLanguage').textContent = liff.getLanguage();
+					    document.getElementById('sdkVersion').textContent = liff.getVersion();
+					    document.getElementById('lineVersion').textContent = liff.getLineVersion();
+					    document.getElementById('isInClient').textContent = liff.isInClient();
+					    document.getElementById('isLoggedIn').textContent = liff.isLoggedIn();
+					    document.getElementById('deviceOS').textContent = liff.getOS();
+						
+				        liff.getProfile().then(function(profile) {
+				            document.getElementById('displayNameField').textContent = profile.displayName;
+						});
+		        	},
+		        	function(){
+		        		console.log("error");
+		        	}
+		        );
         	}
         	window.onload = function() {
 			    const useNodeJS = true;   // if you are not using a node server, set this value to false
