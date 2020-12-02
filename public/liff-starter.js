@@ -35,6 +35,7 @@ function initializeLiffOrDie(myLiffId) {
         document.getElementById("liffAppContent").classList.add('hidden');
         document.getElementById("liffIdErrorMessage").classList.remove('hidden');
     } else {
+    	console.log("call initializeLiff. liffId = " + myLiffId);
         initializeLiff(myLiffId);
     }
 }
@@ -62,6 +63,7 @@ function initializeLiff(myLiffId) {
  * Initialize the app by calling functions handling individual app components
  */
 function initializeApp() {
+	console.log("initializeApp");
     displayLiffData();
     displayIsInClientInfo();
     registerButtonHandlers();

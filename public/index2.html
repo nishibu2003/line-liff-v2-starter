@@ -10,6 +10,9 @@
         		return document.getElementById(id);
         	}
         	function initializeLiff(myLiffId) {
+				console.log("initializa Liff. liffId = " + myLiffId);
+				console.log(liff);
+				
 			    document.getElementById('browserLanguage').textContent = liff.getLanguage();
 			    document.getElementById('sdkVersion').textContent = liff.getVersion();
 			    document.getElementById('lineVersion').textContent = liff.getLineVersion();
